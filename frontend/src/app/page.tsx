@@ -1077,9 +1077,9 @@ export default function AuditPage() {
                       }}
                       disabled={sendingChat}
                       rows={1}
-                      className="resize-none min-h-[40px] max-h-[120px]"
+                      className="resize-none min-h-[40px] max-h-[120px] text-sm sm:text-base"
                     />
-                    <Button size="icon" onClick={handleSendMessage} disabled={sendingChat || !chatInput.trim()} className="shrink-0">
+                    <Button size="icon" onClick={handleSendMessage} disabled={sendingChat || !chatInput.trim()} className="shrink-0 h-auto">
                       <Send className="h-4 w-4" />
                     </Button>
                   </div>
