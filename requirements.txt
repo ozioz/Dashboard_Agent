@@ -1,0 +1,12 @@
+# This file is here to help Railway detect Python
+# The actual requirements are in backend/requirements.txt
+# Railway will install Python, then we'll install backend requirements in build command
+
+fastapi
+uvicorn
+google-generativeai
+python-multipart
+python-dotenv
+websockets
+pydantic
+
