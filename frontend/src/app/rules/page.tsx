@@ -210,7 +210,7 @@ export default function RulesPage() {
                                             ruleId={rule.id}
                                             initialRule={rule}
                                             onSave={(updates) => {
-                                                handleSave(section.id, rule.id, updates);
+                                                handleSave(section.id, rule.id, updates as Partial<ManifestoRule>);
                                                 setEditingRule(null);
                                             }}
                                             onCancel={() => setEditingRule(null)}
