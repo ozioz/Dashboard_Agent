@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Upload, CheckCircle, AlertTriangle, RefreshCw, ArrowRight, Download, Mic, MicOff, Play, HelpCircle, Send, Brain, Eye, FileText, PenTool, BookOpen } from "lucide-react";
+import { Upload, CheckCircle, AlertTriangle, RefreshCw, ArrowRight, Download, Mic, MicOff, Play, HelpCircle, Send, Brain, Eye, FileText, PenTool, BookOpen, Image, Search, ListChecks, Sparkles, MessageSquare, ChevronRight, X, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -578,21 +578,15 @@ export default function AuditPage() {
             </a>
           </Button>
 
-          {/* User Guide Accordion */}
-          <Accordion type="single" collapsible className="w-[400px]">
-            <AccordionItem value="item-1">
-              <AccordionTrigger><span className="flex items-center gap-2"><HelpCircle className="h-4 w-4" /> Nasıl Kullanılır?</span></AccordionTrigger>
-              <AccordionContent>
-                <ol className="list-decimal list-inside space-y-1 text-sm text-muted-foreground">
-                  <li>Dashboard ekran görüntüsünü yükleyin.</li>
-                  <li>Denetim sonucunu ve ihlalleri inceleyin.</li>
-                  <li>Aksiyon planındaki maddeleri seçin.</li>
-                  <li>"Simülasyonu Oluştur" ile gelecek halini görün.</li>
-                  <li>Canlı Danışman ile sesli görüşerek detayları tartışın.</li>
-                </ol>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+          {/* User Guide Button */}
+          <Button 
+            variant="outline" 
+            onClick={() => setShowGuide(!showGuide)}
+            className="transition-smooth hover-scale"
+          >
+            <HelpCircle className="h-4 w-4 mr-2" />
+            Nasıl Kullanılır?
+          </Button>
         </div>
       </div>
 
