@@ -62,7 +62,6 @@ export default function AuditPage() {
   const [activeTab, setActiveTab] = useState<string>("audit");
   const [isClient, setIsClient] = useState(false);
   const [showGuide, setShowGuide] = useState(false);
-  const [showGuide, setShowGuide] = useState(false);
 
   // Restore active tab from localStorage after hydration (client-side only)
   useEffect(() => {
