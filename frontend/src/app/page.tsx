@@ -61,6 +61,7 @@ export default function AuditPage() {
   // Track active tab - always start with "audit" to avoid hydration mismatch
   const [activeTab, setActiveTab] = useState<string>("audit");
   const [isClient, setIsClient] = useState(false);
+  const [showGuide, setShowGuide] = useState(false);
 
   // Restore active tab from localStorage after hydration (client-side only)
   useEffect(() => {
