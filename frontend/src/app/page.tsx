@@ -591,6 +591,155 @@ export default function AuditPage() {
         </div>
       </div>
 
+      {/* Modern User Guide Modal */}
+      {showGuide && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center backdrop-blur-sm animate-fade-in p-4"
+          onClick={() => setShowGuide(false)}
+        >
+          <Card 
+            className="w-full max-w-4xl mx-4 max-h-[90vh] overflow-y-auto animate-slide-in-up shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <CardHeader className="border-b sticky top-0 bg-background z-10">
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle className="text-2xl flex items-center gap-2">
+                    <Sparkles className="h-6 w-6 text-primary" />
+                    Nasıl Kullanılır?
+                  </CardTitle>
+                  <CardDescription className="mt-2">
+                    DashboardMaster ile Power BI dashboard'unuzu 5 adımda iyileştirin
+                  </CardDescription>
+                </div>
+                <Button 
+                  variant="ghost" 
+                  size="icon"
+                  onClick={() => setShowGuide(false)}
+                  className="hover:bg-muted"
+                >
+                  <X className="h-4 w-4" />
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent className="p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {/* Step 1 */}
+                <div className="group relative p-6 rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-primary/10 hover:border-primary/40 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg">
+                    1
+                  </div>
+                  <div className="mt-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                        <Image className="h-6 w-6 text-primary" />
+                      </div>
+                      <h3 className="font-semibold text-lg">Dashboard Yükle</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Power BI dashboard'unuzun ekran görüntüsünü (PNG/JPG) yükleyin. Sistem otomatik olarak analiz edecek.
+                    </p>
+                  </div>
+                  <ChevronRight className="absolute bottom-4 right-4 h-5 w-5 text-primary/40 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                </div>
+
+                {/* Step 2 */}
+                <div className="group relative p-6 rounded-xl border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-blue-100/50 hover:border-blue-400 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
+                    2
+                  </div>
+                  <div className="mt-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="p-2 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-colors">
+                        <Search className="h-6 w-6 text-blue-600" />
+                      </div>
+                      <h3 className="font-semibold text-lg">Denetim Sonuçları</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      AI, dashboard'unuzu manifesto kurallarına göre denetler. İhlalleri ve puanınızı görüntüleyin.
+                    </p>
+                  </div>
+                  <ChevronRight className="absolute bottom-4 right-4 h-5 w-5 text-blue-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+                </div>
+
+                {/* Step 3 */}
+                <div className="group relative p-6 rounded-xl border-2 border-green-200 bg-gradient-to-br from-green-50 to-green-100/50 hover:border-green-400 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-green-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
+                    3
+                  </div>
+                  <div className="mt-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="p-2 rounded-lg bg-green-100 group-hover:bg-green-200 transition-colors">
+                        <ListChecks className="h-6 w-6 text-green-600" />
+                      </div>
+                      <h3 className="font-semibold text-lg">Aksiyon Planı</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      İhlallere yönelik spesifik aksiyonları seçin. Her aksiyon bir ihlali düzeltmeye yöneliktir.
+                    </p>
+                  </div>
+                  <ChevronRight className="absolute bottom-4 right-4 h-5 w-5 text-green-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all" />
+                </div>
+
+                {/* Step 4 */}
+                <div className="group relative p-6 rounded-xl border-2 border-purple-200 bg-gradient-to-br from-purple-50 to-purple-100/50 hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg md:col-span-2 lg:col-span-1">
+                  <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
+                    4
+                  </div>
+                  <div className="mt-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="p-2 rounded-lg bg-purple-100 group-hover:bg-purple-200 transition-colors">
+                        <Sparkles className="h-6 w-6 text-purple-600" />
+                      </div>
+                      <h3 className="font-semibold text-lg">Simülasyon</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      "Simülasyonu Oluştur" butonuna tıklayarak iyileştirilmiş dashboard'un görselini görüntüleyin.
+                    </p>
+                  </div>
+                  <ChevronRight className="absolute bottom-4 right-4 h-5 w-5 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
+                </div>
+
+                {/* Step 5 */}
+                <div className="group relative p-6 rounded-xl border-2 border-orange-200 bg-gradient-to-br from-orange-50 to-orange-100/50 hover:border-orange-400 transition-all duration-300 hover:scale-105 hover:shadow-lg md:col-span-2 lg:col-span-2">
+                  <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-orange-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
+                    5
+                  </div>
+                  <div className="mt-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="p-2 rounded-lg bg-orange-100 group-hover:bg-orange-200 transition-colors">
+                        <MessageSquare className="h-6 w-6 text-orange-600" />
+                      </div>
+                      <h3 className="font-semibold text-lg">Canlı Danışman</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      AI danışman ile metin tabanlı sohbet edin. Denetim sonuçlarınızı sorun, öneriler alın. <code className="text-xs bg-background px-1 py-0.5 rounded">/auditor</code> komutu ile manifesto'ya yeni kural ekleyebilirsiniz.
+                    </p>
+                  </div>
+                  <ChevronRight className="absolute bottom-4 right-4 h-5 w-5 text-orange-400 group-hover:text-orange-600 group-hover:translate-x-1 transition-all" />
+                </div>
+              </div>
+
+              {/* Quick Tips */}
+              <div className="mt-8 p-4 rounded-lg bg-muted/50 border border-primary/20">
+                <div className="flex items-start gap-3">
+                  <Lightbulb className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold mb-2">💡 İpuçları</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      <li>• Dashboard görüntüsü net ve tam ekran olmalı</li>
+                      <li>• Aksiyon planındaki maddeleri seçerek simülasyonu özelleştirebilirsiniz</li>
+                      <li>• Canlı Danışman'da <code className="text-xs bg-background px-1 py-0.5 rounded">/auditor</code> komutu ile manifesto'ya özel kurallar ekleyebilirsiniz</li>
+                      <li>• Theme.json dosyasını indirip Power BI'da kullanabilirsiniz</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
+
       {/* Agent Visualization Overlay */}
       {(loading || simulating || revising) && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center backdrop-blur-sm">
