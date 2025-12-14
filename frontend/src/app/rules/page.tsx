@@ -116,22 +116,23 @@ export default function RulesPage() {
     }
 
     return (
-        <div className="container mx-auto p-6 max-w-7xl animate-fade-in">
-            <div className="mb-6">
-                <div className="flex items-center justify-between mb-4">
-                    <div>
-                        <h1 className="text-3xl font-bold gradient-text flex items-center gap-2">
-                            <BookOpen className="h-8 w-8" />
+        <div className="container mx-auto p-3 sm:p-6 max-w-7xl animate-fade-in">
+            <div className="mb-4 sm:mb-6">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+                    <div className="flex-1">
+                        <h1 className="text-2xl sm:text-3xl font-bold gradient-text flex items-center gap-2">
+                            <BookOpen className="h-6 w-6 sm:h-8 sm:w-8" />
                             Auditor Agent Kuralları
                         </h1>
-                        <p className="text-muted-foreground mt-2">
+                        <p className="text-sm sm:text-base text-muted-foreground mt-2">
                             Dashboard denetiminde kullanılan kuralları görüntüleyin, düzenleyin ve yönetin.
                         </p>
                     </div>
-                    <Button variant="outline" asChild className="transition-smooth hover-scale">
-                        <a href="/" className="flex items-center gap-2">
+                    <Button variant="outline" asChild className="transition-smooth hover-scale w-full sm:w-auto">
+                        <a href="/" className="flex items-center justify-center gap-2">
                             <ArrowLeft className="h-4 w-4" />
-                            Ana Sayfaya Dön
+                            <span className="hidden sm:inline">Ana Sayfaya Dön</span>
+                            <span className="sm:hidden">Ana Sayfa</span>
                         </a>
                     </Button>
                 </div>
@@ -149,17 +150,17 @@ export default function RulesPage() {
                 </Alert>
             )}
 
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
                 {sections.map((section) => (
                     <Card key={section.id} className="card-hover animate-slide-in-right">
-                        <CardHeader>
-                            <div className="flex items-center justify-between">
-                                <div>
-                                    <CardTitle className="flex items-center gap-2">
-                                        <Badge variant="outline">{section.id}</Badge>
+                        <CardHeader className="p-4 sm:p-6">
+                            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                                <div className="flex-1">
+                                    <CardTitle className="flex items-center gap-2 text-base sm:text-lg">
+                                        <Badge variant="outline" className="text-xs">{section.id}</Badge>
                                         {section.title}
                                     </CardTitle>
-                                    <CardDescription className="mt-1">
+                                    <CardDescription className="mt-1 text-sm">
                                         {section.rules.length} kural
                                     </CardDescription>
                                 </div>
@@ -168,9 +169,11 @@ export default function RulesPage() {
                                         variant="outline"
                                         size="sm"
                                         onClick={() => setAddingRule(section.id)}
+                                        className="flex-1 sm:flex-initial text-xs sm:text-sm"
                                     >
-                                        <Plus className="h-4 w-4 mr-2" />
-                                        Kural Ekle
+                                        <Plus className="h-4 w-4 mr-1 sm:mr-2" />
+                                        <span className="hidden sm:inline">Kural Ekle</span>
+                                        <span className="sm:hidden">Ekle</span>
                                     </Button>
                                     <Button
                                         variant="ghost"
@@ -188,7 +191,7 @@ export default function RulesPage() {
                         </CardHeader>
 
                         {expandedSections.has(section.id) && (
-                            <CardContent className="space-y-4 animate-fade-in">
+                            <CardContent className="space-y-3 sm:space-y-4 p-4 sm:p-6 pt-0 animate-fade-in">
                                 {addingRule === section.id && (
                                     <RuleForm
                                         sectionId={section.id}
@@ -218,39 +221,43 @@ export default function RulesPage() {
                                     ) : (
                                         <div
                                             key={rule.id}
-                                            className="border rounded-lg p-4 hover:bg-muted/50 transition-smooth hover-scale"
+                                            className="border rounded-lg p-3 sm:p-4 hover:bg-muted/50 transition-smooth hover-scale"
                                         >
-                                            <div className="flex items-start justify-between">
-                                                <div className="flex-1">
-                                                    <div className="flex items-center gap-2 mb-2">
-                                                        <Badge variant="secondary">#{rule.id}</Badge>
-                                                        <h4 className="font-semibold">{rule.name}</h4>
+                                            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                                                <div className="flex-1 min-w-0">
+                                                    <div className="flex items-center gap-2 mb-2 flex-wrap">
+                                                        <Badge variant="secondary" className="text-xs">#{rule.id}</Badge>
+                                                        <h4 className="font-semibold text-sm sm:text-base break-words">{rule.name}</h4>
                                                     </div>
-                                                    <p className="text-sm text-muted-foreground mb-2">
+                                                    <p className="text-xs sm:text-sm text-muted-foreground mb-2 break-words">
                                                         {rule.description}
                                                     </p>
                                                     {rule.sub_rules && rule.sub_rules.length > 0 && (
-                                                        <ul className="list-disc list-inside text-sm text-muted-foreground ml-4">
+                                                        <ul className="list-disc list-inside text-xs sm:text-sm text-muted-foreground ml-2 sm:ml-4 space-y-1">
                                                             {rule.sub_rules.map((subRule, idx) => (
-                                                                <li key={idx}>{subRule}</li>
+                                                                <li key={idx} className="break-words">{subRule}</li>
                                                             ))}
                                                         </ul>
                                                     )}
                                                 </div>
-                                                <div className="flex gap-2 ml-4">
+                                                <div className="flex gap-2 sm:ml-4 shrink-0">
                                                     <Button
                                                         variant="ghost"
                                                         size="sm"
                                                         onClick={() => handleEdit(section.id, rule.id)}
+                                                        className="flex-1 sm:flex-initial"
                                                     >
                                                         <Edit className="h-4 w-4" />
+                                                        <span className="ml-1 sm:hidden">Düzenle</span>
                                                     </Button>
                                                     <Button
                                                         variant="ghost"
                                                         size="sm"
                                                         onClick={() => handleDelete(section.id, rule.id)}
+                                                        className="flex-1 sm:flex-initial"
                                                     >
                                                         <Trash2 className="h-4 w-4 text-destructive" />
+                                                        <span className="ml-1 sm:hidden">Sil</span>
                                                     </Button>
                                                 </div>
                                             </div>
@@ -298,50 +305,50 @@ function RuleForm({ sectionId, ruleId, initialRule, onSave, onCancel }: RuleForm
 
     return (
         <Card className="border-2 border-primary/20 animate-fade-in">
-            <CardHeader>
-                <CardTitle className="text-lg">
+            <CardHeader className="p-4 sm:p-6">
+                <CardTitle className="text-base sm:text-lg">
                     {ruleId ? "Kuralı Düzenle" : "Yeni Kural Ekle"}
                 </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="space-y-4 p-4 sm:p-6 pt-0">
                 <div>
-                    <Label htmlFor="rule-name">Kural Adı</Label>
+                    <Label htmlFor="rule-name" className="text-sm">Kural Adı</Label>
                     <Input
                         id="rule-name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="Örn: Grid Alignment"
-                        className="mt-1"
+                        className="mt-1 text-sm sm:text-base"
                     />
                 </div>
                 <div>
-                    <Label htmlFor="rule-description">Açıklama</Label>
+                    <Label htmlFor="rule-description" className="text-sm">Açıklama</Label>
                     <Textarea
                         id="rule-description"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         placeholder="Kuralın detaylı açıklaması..."
-                        className="mt-1"
+                        className="mt-1 text-sm sm:text-base"
                         rows={3}
                     />
                 </div>
                 <div>
-                    <Label htmlFor="rule-sub-rules">Alt Kurallar (Her satıra bir alt kural)</Label>
+                    <Label htmlFor="rule-sub-rules" className="text-sm">Alt Kurallar (Her satıra bir alt kural)</Label>
                     <Textarea
                         id="rule-sub-rules"
                         value={subRules}
                         onChange={(e) => setSubRules(e.target.value)}
                         placeholder="Alt kural 1&#10;Alt kural 2"
-                        className="mt-1"
+                        className="mt-1 text-sm sm:text-base"
                         rows={4}
                     />
                 </div>
-                <div className="flex gap-2 justify-end">
-                    <Button variant="outline" onClick={onCancel}>
+                <div className="flex flex-col sm:flex-row gap-2 sm:justify-end">
+                    <Button variant="outline" onClick={onCancel} className="w-full sm:w-auto text-sm sm:text-base">
                         <X className="h-4 w-4 mr-2" />
                         İptal
                     </Button>
-                    <Button onClick={handleSubmit} disabled={!name || !description}>
+                    <Button onClick={handleSubmit} disabled={!name || !description} className="w-full sm:w-auto text-sm sm:text-base">
                         <Save className="h-4 w-4 mr-2" />
                         Kaydet
                     </Button>

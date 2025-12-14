@@ -563,19 +563,20 @@ export default function AuditPage() {
   };
 
   return (
-    <div className="container mx-auto p-6 max-w-7xl animate-fade-in">
-      <div className="flex justify-between items-center mb-6">
+    <div className="container mx-auto p-3 sm:p-6 max-w-7xl animate-fade-in">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
         <div className="animate-slide-in-right">
-          <h1 className="text-3xl font-bold gradient-text">Power BI Akıllı Denetim</h1>
-          <p className="text-muted-foreground mt-2">Dashboard'unuzu yükleyin, yapay zeka ile denetleyin ve iyileştirin.</p>
+          <h1 className="text-2xl sm:text-3xl font-bold gradient-text">Power BI Akıllı Denetim</h1>
+          <p className="text-sm sm:text-base text-muted-foreground mt-2">Dashboard'unuzu yükleyin, yapay zeka ile denetleyin ve iyileştirin.</p>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-4">
           {/* Rules Link */}
-          <Button variant="outline" asChild className="transition-smooth hover-scale">
-            <a href="/rules" className="flex items-center gap-2">
+          <Button variant="outline" asChild className="transition-smooth hover-scale w-full sm:w-auto">
+            <a href="/rules" className="flex items-center justify-center gap-2">
               <BookOpen className="h-4 w-4" />
-              Kuralları Yönet
+              <span className="hidden sm:inline">Kuralları Yönet</span>
+              <span className="sm:hidden">Kurallar</span>
             </a>
           </Button>
 
@@ -583,10 +584,11 @@ export default function AuditPage() {
           <Button 
             variant="outline" 
             onClick={() => setShowGuide(!showGuide)}
-            className="transition-smooth hover-scale"
+            className="transition-smooth hover-scale w-full sm:w-auto"
           >
-            <HelpCircle className="h-4 w-4 mr-2" />
-            Nasıl Kullanılır?
+            <HelpCircle className="h-4 w-4 sm:mr-2" />
+            <span className="hidden sm:inline">Nasıl Kullanılır?</span>
+            <span className="sm:hidden">Yardım</span>
           </Button>
         </div>
       </div>
@@ -594,21 +596,21 @@ export default function AuditPage() {
       {/* Modern User Guide Modal */}
       {showGuide && (
         <div 
-          className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center backdrop-blur-sm animate-fade-in p-4"
+          className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center backdrop-blur-sm animate-fade-in p-2 sm:p-4"
           onClick={() => setShowGuide(false)}
         >
           <Card 
-            className="w-full max-w-4xl mx-4 max-h-[90vh] overflow-y-auto animate-slide-in-up shadow-2xl"
+            className="w-full max-w-4xl mx-auto max-h-[95vh] sm:max-h-[90vh] overflow-y-auto animate-slide-in-up shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <CardHeader className="border-b sticky top-0 bg-background z-10">
-              <div className="flex items-center justify-between">
-                <div>
-                  <CardTitle className="text-2xl flex items-center gap-2">
-                    <Sparkles className="h-6 w-6 text-primary" />
+            <CardHeader className="border-b sticky top-0 bg-background z-10 p-4 sm:p-6">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div className="flex-1">
+                  <CardTitle className="text-xl sm:text-2xl flex items-center gap-2">
+                    <Sparkles className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                     Nasıl Kullanılır?
                   </CardTitle>
-                  <CardDescription className="mt-2">
+                  <CardDescription className="mt-2 text-sm sm:text-base">
                     DashboardMaster ile Power BI dashboard'unuzu 5 adımda iyileştirin
                   </CardDescription>
                 </div>
@@ -616,117 +618,117 @@ export default function AuditPage() {
                   variant="ghost" 
                   size="icon"
                   onClick={() => setShowGuide(false)}
-                  className="hover:bg-muted"
+                  className="hover:bg-muted self-end sm:self-auto"
                 >
                   <X className="h-4 w-4" />
                 </Button>
               </div>
             </CardHeader>
-            <CardContent className="p-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <CardContent className="p-4 sm:p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                 {/* Step 1 */}
-                <div className="group relative p-6 rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-primary/10 hover:border-primary/40 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                  <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg">
+                <div className="group relative p-4 sm:p-6 rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-primary/10 hover:border-primary/40 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <div className="absolute -top-2 -left-2 sm:-top-3 sm:-left-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-base sm:text-lg shadow-lg">
                     1
                   </div>
-                  <div className="mt-4">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                        <Image className="h-6 w-6 text-primary" />
+                  <div className="mt-3 sm:mt-4">
+                    <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                      <div className="p-1.5 sm:p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                        <Image className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                       </div>
-                      <h3 className="font-semibold text-lg">Dashboard Yükle</h3>
+                      <h3 className="font-semibold text-base sm:text-lg">Dashboard Yükle</h3>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                       Power BI dashboard'unuzun ekran görüntüsünü (PNG/JPG) yükleyin. Sistem otomatik olarak analiz edecek.
                     </p>
                   </div>
-                  <ChevronRight className="absolute bottom-4 right-4 h-5 w-5 text-primary/40 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  <ChevronRight className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 h-4 w-4 sm:h-5 sm:w-5 text-primary/40 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                 </div>
 
                 {/* Step 2 */}
-                <div className="group relative p-6 rounded-xl border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-blue-100/50 hover:border-blue-400 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                  <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
+                <div className="group relative p-4 sm:p-6 rounded-xl border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-blue-100/50 hover:border-blue-400 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <div className="absolute -top-2 -left-2 sm:-top-3 sm:-left-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-base sm:text-lg shadow-lg">
                     2
                   </div>
-                  <div className="mt-4">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="p-2 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-colors">
-                        <Search className="h-6 w-6 text-blue-600" />
+                  <div className="mt-3 sm:mt-4">
+                    <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                      <div className="p-1.5 sm:p-2 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-colors">
+                        <Search className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
                       </div>
-                      <h3 className="font-semibold text-lg">Denetim Sonuçları</h3>
+                      <h3 className="font-semibold text-base sm:text-lg">Denetim Sonuçları</h3>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                       AI, dashboard'unuzu manifesto kurallarına göre denetler. İhlalleri ve puanınızı görüntüleyin.
                     </p>
                   </div>
-                  <ChevronRight className="absolute bottom-4 right-4 h-5 w-5 text-blue-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+                  <ChevronRight className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 h-4 w-4 sm:h-5 sm:w-5 text-blue-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
                 </div>
 
                 {/* Step 3 */}
-                <div className="group relative p-6 rounded-xl border-2 border-green-200 bg-gradient-to-br from-green-50 to-green-100/50 hover:border-green-400 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                  <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-green-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
+                <div className="group relative p-4 sm:p-6 rounded-xl border-2 border-green-200 bg-gradient-to-br from-green-50 to-green-100/50 hover:border-green-400 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <div className="absolute -top-2 -left-2 sm:-top-3 sm:-left-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-600 text-white flex items-center justify-center font-bold text-base sm:text-lg shadow-lg">
                     3
                   </div>
-                  <div className="mt-4">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="p-2 rounded-lg bg-green-100 group-hover:bg-green-200 transition-colors">
-                        <ListChecks className="h-6 w-6 text-green-600" />
+                  <div className="mt-3 sm:mt-4">
+                    <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                      <div className="p-1.5 sm:p-2 rounded-lg bg-green-100 group-hover:bg-green-200 transition-colors">
+                        <ListChecks className="h-5 w-5 sm:h-6 sm:w-6 text-green-600" />
                       </div>
-                      <h3 className="font-semibold text-lg">Aksiyon Planı</h3>
+                      <h3 className="font-semibold text-base sm:text-lg">Aksiyon Planı</h3>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                       İhlallere yönelik spesifik aksiyonları seçin. Her aksiyon bir ihlali düzeltmeye yöneliktir.
                     </p>
                   </div>
-                  <ChevronRight className="absolute bottom-4 right-4 h-5 w-5 text-green-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all" />
+                  <ChevronRight className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 h-4 w-4 sm:h-5 sm:w-5 text-green-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all" />
                 </div>
 
                 {/* Step 4 */}
-                <div className="group relative p-6 rounded-xl border-2 border-purple-200 bg-gradient-to-br from-purple-50 to-purple-100/50 hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg md:col-span-2 lg:col-span-1">
-                  <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
+                <div className="group relative p-4 sm:p-6 rounded-xl border-2 border-purple-200 bg-gradient-to-br from-purple-50 to-purple-100/50 hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg md:col-span-2 lg:col-span-1">
+                  <div className="absolute -top-2 -left-2 sm:-top-3 sm:-left-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-base sm:text-lg shadow-lg">
                     4
                   </div>
-                  <div className="mt-4">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="p-2 rounded-lg bg-purple-100 group-hover:bg-purple-200 transition-colors">
-                        <Sparkles className="h-6 w-6 text-purple-600" />
+                  <div className="mt-3 sm:mt-4">
+                    <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                      <div className="p-1.5 sm:p-2 rounded-lg bg-purple-100 group-hover:bg-purple-200 transition-colors">
+                        <Sparkles className="h-5 w-5 sm:h-6 sm:w-6 text-purple-600" />
                       </div>
-                      <h3 className="font-semibold text-lg">Simülasyon</h3>
+                      <h3 className="font-semibold text-base sm:text-lg">Simülasyon</h3>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                       "Simülasyonu Oluştur" butonuna tıklayarak iyileştirilmiş dashboard'un görselini görüntüleyin.
                     </p>
                   </div>
-                  <ChevronRight className="absolute bottom-4 right-4 h-5 w-5 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
+                  <ChevronRight className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 h-4 w-4 sm:h-5 sm:w-5 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
                 </div>
 
                 {/* Step 5 */}
-                <div className="group relative p-6 rounded-xl border-2 border-orange-200 bg-gradient-to-br from-orange-50 to-orange-100/50 hover:border-orange-400 transition-all duration-300 hover:scale-105 hover:shadow-lg md:col-span-2 lg:col-span-2">
-                  <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-orange-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
+                <div className="group relative p-4 sm:p-6 rounded-xl border-2 border-orange-200 bg-gradient-to-br from-orange-50 to-orange-100/50 hover:border-orange-400 transition-all duration-300 hover:scale-105 hover:shadow-lg md:col-span-2 lg:col-span-2">
+                  <div className="absolute -top-2 -left-2 sm:-top-3 sm:-left-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-orange-600 text-white flex items-center justify-center font-bold text-base sm:text-lg shadow-lg">
                     5
                   </div>
-                  <div className="mt-4">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="p-2 rounded-lg bg-orange-100 group-hover:bg-orange-200 transition-colors">
-                        <MessageSquare className="h-6 w-6 text-orange-600" />
+                  <div className="mt-3 sm:mt-4">
+                    <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                      <div className="p-1.5 sm:p-2 rounded-lg bg-orange-100 group-hover:bg-orange-200 transition-colors">
+                        <MessageSquare className="h-5 w-5 sm:h-6 sm:w-6 text-orange-600" />
                       </div>
-                      <h3 className="font-semibold text-lg">Canlı Danışman</h3>
+                      <h3 className="font-semibold text-base sm:text-lg">Canlı Danışman</h3>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                       AI danışman ile metin tabanlı sohbet edin. Denetim sonuçlarınızı sorun, öneriler alın. <code className="text-xs bg-background px-1 py-0.5 rounded">/auditor</code> komutu ile manifesto'ya yeni kural ekleyebilirsiniz.
                     </p>
                   </div>
-                  <ChevronRight className="absolute bottom-4 right-4 h-5 w-5 text-orange-400 group-hover:text-orange-600 group-hover:translate-x-1 transition-all" />
+                  <ChevronRight className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 h-4 w-4 sm:h-5 sm:w-5 text-orange-400 group-hover:text-orange-600 group-hover:translate-x-1 transition-all" />
                 </div>
               </div>
 
               {/* Quick Tips */}
-              <div className="mt-8 p-4 rounded-lg bg-muted/50 border border-primary/20">
-                <div className="flex items-start gap-3">
-                  <Lightbulb className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+              <div className="mt-6 sm:mt-8 p-3 sm:p-4 rounded-lg bg-muted/50 border border-primary/20">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <Lightbulb className="h-4 w-4 sm:h-5 sm:w-5 text-primary mt-0.5 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold mb-2">💡 İpuçları</h4>
-                    <ul className="text-sm text-muted-foreground space-y-1">
+                    <h4 className="font-semibold mb-2 text-sm sm:text-base">💡 İpuçları</h4>
+                    <ul className="text-xs sm:text-sm text-muted-foreground space-y-1">
                       <li>• Dashboard görüntüsü net ve tam ekran olmalı</li>
                       <li>• Aksiyon planındaki maddeleri seçerek simülasyonu özelleştirebilirsiniz</li>
                       <li>• Canlı Danışman'da <code className="text-xs bg-background px-1 py-0.5 rounded">/auditor</code> komutu ile manifesto'ya özel kurallar ekleyebilirsiniz</li>
@@ -819,10 +821,10 @@ export default function AuditPage() {
 
       {/* Results Section - Always show tabs, but some tabs require result */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-3 mb-8">
-          <TabsTrigger value="audit" disabled={!result}>Denetim Sonuçları</TabsTrigger>
-          <TabsTrigger value="plan" disabled={!result}>Aksiyon Planı & Simülasyon</TabsTrigger>
-          <TabsTrigger value="live">Canlı Danışman</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-3 mb-4 sm:mb-8 overflow-x-auto">
+          <TabsTrigger value="audit" disabled={!result} className="text-xs sm:text-sm">Denetim Sonuçları</TabsTrigger>
+          <TabsTrigger value="plan" disabled={!result} className="text-xs sm:text-sm">Aksiyon Planı & Simülasyon</TabsTrigger>
+          <TabsTrigger value="live" className="text-xs sm:text-sm">Canlı Danışman</TabsTrigger>
         </TabsList>
 
           {/* Tab 1: Audit Results */}
@@ -834,16 +836,16 @@ export default function AuditPage() {
                 </CardContent>
               </Card>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 animate-fade-in">
                 {/* Score Card */}
                 <Card className="md:col-span-1 card-hover animate-slide-in-right">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5" />
+                  <CardHeader className="p-4 sm:p-6">
+                    <CardTitle className="flex items-center gap-2 text-base sm:text-lg">
+                      <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5" />
                       Denetim Puanı
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="text-center">
+                  <CardContent className="text-center p-4 sm:p-6 pt-0">
                     <div className="relative pt-1 mb-4">
                       <div className="flex mb-2 items-center justify-between">
                         <div>
@@ -859,12 +861,12 @@ export default function AuditPage() {
                       </div>
                       <Progress value={result.audit_result.score} className="h-2 transition-smooth" />
                     </div>
-                    <p className="text-sm text-muted-foreground text-left">{result.audit_result.summary}</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground text-left">{result.audit_result.summary}</p>
                   </CardContent>
                 </Card>
 
                 {/* Violations Card */}
-                <Card className="md:col-span-2 h-[600px] flex flex-col card-hover animate-slide-in-right">
+                <Card className="md:col-span-2 h-[400px] sm:h-[600px] flex flex-col card-hover animate-slide-in-right">
                   <CardHeader>
                     <CardTitle>İhlaller ({result.audit_result.violations.length})</CardTitle>
                     <CardDescription>Manifesto kurallarına uymayan noktalar.</CardDescription>
@@ -942,21 +944,22 @@ export default function AuditPage() {
                     </div>
                   </ScrollArea>
                   <div className="mt-4 pt-4 border-t">
-                    <Button className="w-full" onClick={handleSimulate} disabled={simulating || checkedActions.length === 0}>
+                    <Button className="w-full text-sm sm:text-base" onClick={handleSimulate} disabled={simulating || checkedActions.length === 0}>
                       {simulating ? <RefreshCw className="mr-2 h-4 w-4 animate-spin" /> : <Play className="mr-2 h-4 w-4" />}
-                      {simulating ? "Oluşturuluyor..." : "Seçilenlerle Simülasyon Oluştur"}
+                      <span className="hidden sm:inline">{simulating ? "Oluşturuluyor..." : "Seçilenlerle Simülasyon Oluştur"}</span>
+                      <span className="sm:hidden">{simulating ? "Oluşturuluyor..." : "Simülasyon Oluştur"}</span>
                     </Button>
                   </div>
                 </CardContent>
               </Card>
 
               {/* Simulation View */}
-              <div className="space-y-6">
-                <Card className="h-[400px] flex flex-col">
-                  <CardHeader>
-                    <CardTitle>Gelecek Durum</CardTitle>
+              <div className="space-y-4 sm:space-y-6">
+                <Card className="h-[300px] sm:h-[400px] flex flex-col">
+                  <CardHeader className="p-4 sm:p-6">
+                    <CardTitle className="text-base sm:text-lg">Gelecek Durum</CardTitle>
                   </CardHeader>
-                  <CardContent className="flex-1 flex items-center justify-center bg-slate-50 overflow-hidden relative p-4">
+                  <CardContent className="flex-1 flex items-center justify-center bg-slate-50 overflow-hidden relative p-2 sm:p-4">
                     {!simulationSvg ? (
                       <div className="text-center text-muted-foreground">
                         <p>Henüz simülasyon oluşturulmadı.</p>
@@ -979,16 +982,18 @@ export default function AuditPage() {
 
                 {/* Revision Input */}
                 <Card>
-                  <CardHeader>
-                    <CardTitle>Revizyon İsteği</CardTitle>
+                  <CardHeader className="p-4 sm:p-6">
+                    <CardTitle className="text-base sm:text-lg">Revizyon İsteği</CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-4">
+                  <CardContent className="space-y-4 p-4 sm:p-6 pt-0">
                     <Textarea
                       placeholder="Örn: Arka planı daha açık yap, başlık fontunu değiştir..."
                       value={revisionFeedback}
                       onChange={(e) => setRevisionFeedback(e.target.value)}
+                      className="text-sm sm:text-base"
+                      rows={3}
                     />
-                    <Button onClick={handleRevise} disabled={revising || !revisionFeedback} variant="secondary" className="w-full">
+                    <Button onClick={handleRevise} disabled={revising || !revisionFeedback} variant="secondary" className="w-full text-sm sm:text-base">
                       {revising ? <RefreshCw className="mr-2 h-4 w-4 animate-spin" /> : <ArrowRight className="mr-2 h-4 w-4" />}
                       Planı Güncelle
                     </Button>
@@ -1017,30 +1022,30 @@ export default function AuditPage() {
               </Alert>
 
               {/* Chat Interface - Full Width */}
-              <Card className="h-[700px] flex flex-col">
-                <CardHeader>
-                  <CardTitle>Yazılı Sohbet</CardTitle>
-                  <CardDescription>
+              <Card className="h-[500px] sm:h-[700px] flex flex-col">
+                <CardHeader className="p-4 sm:p-6">
+                  <CardTitle className="text-base sm:text-lg">Yazılı Sohbet</CardTitle>
+                  <CardDescription className="text-xs sm:text-sm">
                     Danışman ile mesajlaşın. Model: <code className="text-xs bg-muted px-1 py-0.5 rounded">gemini-2.5-flash</code>
                   </CardDescription>
-                  <div className="mt-2 text-xs text-muted-foreground">
+                  <div className="mt-2 text-xs text-muted-foreground hidden sm:block">
                     <p className="font-medium mb-1">Komutlar:</p>
                     <ul className="list-disc list-inside space-y-0.5">
                       <li><code>/auditor &lt;kural açıklaması&gt;</code> - Manifesto'ya yeni kural ekle ve yeniden değerlendir</li>
                     </ul>
                   </div>
                 </CardHeader>
-                <CardContent className="flex-1 flex flex-col p-4 overflow-hidden">
-                  <div ref={chatScrollRef} className="flex-1 overflow-y-auto pr-4 mb-4 space-y-4">
+                <CardContent className="flex-1 flex flex-col p-3 sm:p-4 overflow-hidden">
+                  <div ref={chatScrollRef} className="flex-1 overflow-y-auto pr-2 sm:pr-4 mb-3 sm:mb-4 space-y-3 sm:space-y-4">
                     {messages.length === 0 && (
-                      <div className="text-center text-muted-foreground text-sm mt-10 space-y-2">
+                      <div className="text-center text-muted-foreground text-xs sm:text-sm mt-6 sm:mt-10 space-y-2">
                         <p>Henüz mesaj yok. Merhaba diyerek başlayın!</p>
                         <p className="text-xs">💡 <code>/auditor</code> komutu ile manifesto'ya yeni kural ekleyebilirsiniz.</p>
                       </div>
                     )}
                     {messages.map((msg, i) => (
                       <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : msg.role === "system" ? "justify-center" : "justify-start"}`}>
-                        <div className={`max-w-[80%] rounded-lg px-4 py-2 text-sm whitespace-pre-wrap break-words ${
+                        <div className={`max-w-[85%] sm:max-w-[80%] rounded-lg px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm whitespace-pre-wrap break-words ${
                           msg.role === "user" 
                             ? "bg-primary text-primary-foreground" 
                             : msg.role === "system"
