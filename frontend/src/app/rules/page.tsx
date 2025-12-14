@@ -270,7 +270,7 @@ interface RuleFormProps {
     sectionId: number;
     ruleId?: number;
     initialRule?: ManifestoRule;
-    onSave: (rule: Partial<ManifestoRule>) => void;
+    onSave: (rule: Omit<ManifestoRule, "id">) => void;
     onCancel: () => void;
 }
 
