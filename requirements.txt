@@ -9,4 +9,5 @@ python-multipart
 python-dotenv
 websockets
 pydantic
+Pillow
 
