@@ -75,6 +75,12 @@ retail*.png
 !streamlit_prototype/**/*.jpeg
 !streamlit_prototype/**/*.png
 
+# Deployment configs (keep these)
+!railway.json
+!netlify.toml
+!requirements.txt
+!runtime.txt
+
 # Logs
 *.log
 logs/

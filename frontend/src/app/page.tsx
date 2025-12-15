@@ -774,13 +774,13 @@ export default function AuditPage() {
 
       {/* Upload Section */}
       {!result && (
-        <Card className="w-full max-w-md mx-auto mt-10 card-hover animate-fade-in">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Upload className="h-5 w-5" />
+        <Card className="w-full max-w-md mx-auto mt-4 sm:mt-6 md:mt-10 card-hover animate-fade-in">
+          <CardHeader className="p-4 sm:p-6">
+            <CardTitle className="flex items-center gap-2 text-base sm:text-lg">
+              <Upload className="h-4 w-4 sm:h-5 sm:w-5" />
               Dashboard Yükle
             </CardTitle>
-            <CardDescription>Analiz için ekran görüntüsünü (PNG/JPG) yükleyin.</CardDescription>
+            <CardDescription className="text-xs sm:text-sm">Analiz için ekran görüntüsünü (PNG/JPG) yükleyin.</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid w-full max-w-sm items-center gap-1.5">
@@ -821,22 +821,33 @@ export default function AuditPage() {
 
       {/* Results Section - Always show tabs, but some tabs require result */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-3 mb-4 sm:mb-8 overflow-x-auto">
-          <TabsTrigger value="audit" disabled={!result} className="text-xs sm:text-sm">Denetim Sonuçları</TabsTrigger>
-          <TabsTrigger value="plan" disabled={!result} className="text-xs sm:text-sm">Aksiyon Planı & Simülasyon</TabsTrigger>
-          <TabsTrigger value="live" className="text-xs sm:text-sm">Canlı Danışman</TabsTrigger>
-        </TabsList>
+        <div className="overflow-x-auto mb-4 sm:mb-8 -mx-3 sm:mx-0 px-3 sm:px-0">
+          <TabsList className="inline-flex w-full sm:grid sm:grid-cols-3 h-auto min-w-full sm:min-w-0">
+            <TabsTrigger value="audit" disabled={!result} className="text-xs sm:text-sm whitespace-nowrap flex-1 sm:flex-none min-w-0 px-2 sm:px-3">
+              <span className="hidden sm:inline">Denetim Sonuçları</span>
+              <span className="sm:hidden">Denetim</span>
+            </TabsTrigger>
+            <TabsTrigger value="plan" disabled={!result} className="text-xs sm:text-sm whitespace-nowrap flex-1 sm:flex-none min-w-0 px-2 sm:px-3">
+              <span className="hidden sm:inline">Aksiyon Planı & Simülasyon</span>
+              <span className="sm:hidden">Aksiyon</span>
+            </TabsTrigger>
+            <TabsTrigger value="live" className="text-xs sm:text-sm whitespace-nowrap flex-1 sm:flex-none min-w-0 px-2 sm:px-3">
+              <span className="hidden sm:inline">Canlı Danışman</span>
+              <span className="sm:hidden">Danışman</span>
+            </TabsTrigger>
+          </TabsList>
+        </div>
 
           {/* Tab 1: Audit Results */}
-          <TabsContent value="audit" className="space-y-6">
+          <TabsContent value="audit" className="space-y-4 sm:space-y-6 mt-4 sm:mt-0">
             {!result ? (
               <Card>
-                <CardContent className="py-12 text-center">
-                  <p className="text-muted-foreground">Denetim sonuçlarını görmek için önce bir dashboard yükleyin.</p>
+                <CardContent className="py-8 sm:py-12 text-center px-4 sm:px-6">
+                  <p className="text-sm sm:text-base text-muted-foreground">Denetim sonuçlarını görmek için önce bir dashboard yükleyin.</p>
                 </CardContent>
               </Card>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 animate-fade-in">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 animate-fade-in">
                 {/* Score Card */}
                 <Card className="md:col-span-1 card-hover animate-slide-in-right">
                   <CardHeader className="p-4 sm:p-6">
